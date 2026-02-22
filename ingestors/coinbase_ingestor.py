@@ -1,6 +1,8 @@
 import websockets
 import asyncio
 import json
+from messenger import messenger
+from evaluator import evaluator
 
 async def stream_prices():
     # websocket url for coinbase
@@ -14,7 +16,7 @@ async def stream_prices():
     }
 
     try:
-        async with websockets.connect(url) as websocket:
+        async with websockets.connect(url) as websocket:      
             print(f"Connected to live feed")
 
             await websocket.send(json.dumps(subscribe_message))
@@ -25,12 +27,20 @@ async def stream_prices():
                 response = await websocket.recv()
                 data = json.loads(response)
 
+                #print(data)
+
                 if(data.get('type') == 'ticker'):
                     price = data.get('price')
                     symbol = data.get('product_id')
 
+                    # If the JSON has both the currency symbol and a price, print the data and evaluate buy option
                     if symbol and price:
-                        print(f"[${symbol}]: ${float(price):,.2f}")
+                        #print(f"[${symbol}]: ${float(price):,.2f}")
+                        value = evaluator(symbol, price)
+
+                        if (value == True):
+                            messenger(symbol, price)
+
                 elif data.get('type') == 'heartbeat':
                     # We don't need to print this, but it proves we're alive
                     pass
