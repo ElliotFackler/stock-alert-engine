@@ -35,7 +35,6 @@ async def stream_prices():
 
                     # If the JSON has both the currency symbol and a price, print the data and evaluate buy option
                     if symbol and price:
-                        #print(f"[${symbol}]: ${float(price):,.2f}")
                         value = evaluator(symbol, price)
 
                         if (value == True):
