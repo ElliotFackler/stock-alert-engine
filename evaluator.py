@@ -1,13 +1,21 @@
 # Global variables
-PRICE_DICT = {'BTC-USD': 60000, 'ETH-USD': 2000}
-GOAL_DICT = {'BTC-USD': False, 'ETH-USD': False}
+CEILING_DICT = {'BTC-USD': 60000, 'ETH-USD': 2000}
+FLOOR_DICT = {'BTC-USD': 55000, 'ETH-USD': 1500}
+CEILING_GOAL_DICT = {'BTC-USD': False, 'ETH-USD': False}
+FLOOR_GOAL_DICT = {'BTC-USD': False, 'ETH-USD': False}
 
 def evaluator(symbol, price):
-    global PRICE_DICT
-    global GOAL_DICT
+    global CEILING_DICT
+    global CEILING_GOAL_DICT
+    global FLOOR_DICT
+    global FLOOR_GOAL_DICT
 
-    if (float(price) > PRICE_DICT.get(symbol) and GOAL_DICT[symbol] == False):
-        GOAL_DICT[symbol] = True
-        return GOAL_DICT.get(symbol)
-    return False
+    if (float(price) > CEILING_DICT.get(symbol) and CEILING_GOAL_DICT[symbol] == False):
+        CEILING_GOAL_DICT[symbol] = True
+        return "Ceiling", CEILING_GOAL_DICT.get(symbol)
+    elif (float(price) < FLOOR_DICT.get(symbol) and FLOOR_GOAL_DICT[symbol] == False):
+        FLOOR_GOAL_DICT[symbol] = True
+        return "Floor", FLOOR_GOAL_DICT.get(symbol)
+    else:
+        return "None", False
         

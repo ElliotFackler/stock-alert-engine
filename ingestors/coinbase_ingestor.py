@@ -35,10 +35,10 @@ async def stream_prices():
 
                     # If the JSON has both the currency symbol and a price, print the data and evaluate buy option
                     if symbol and price:
-                        value = evaluator(symbol, price)
+                        level, value = evaluator(symbol, price)
 
                         if (value == True):
-                            messenger(symbol, price)
+                            messenger(symbol, price, level)
 
                 elif data.get('type') == 'heartbeat':
                     # We don't need to print this, but it proves we're alive
