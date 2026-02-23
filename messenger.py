@@ -1,11 +1,15 @@
 import smtplib
 from email.mime.text import MIMEText
-#from dotenv import load_dotenv
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv() 
 
 # List the sender and recepient emails
 sender = ''
 recepient = ''
-#PASSWORD
+PASSWORD = os.getenv("PASSWORD")
 
 
 def messenger(symbol, price, level):
