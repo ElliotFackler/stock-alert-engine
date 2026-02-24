@@ -1,11 +1,11 @@
 import websockets
 import asyncio
 import json
-from messenger import messenger
-from evaluator import evaluator
+from messenger import build_email
+from evaluator import evaluate_currency_prices
 
 async def stream_prices():
-    # websocket url for coinbase
+    """ Access Coinbase websocket and pull the currency data via a JSON block"""
     url = "wss://ws-feed.exchange.coinbase.com"
 
     # Subscription message to send to websocket: ticker for data, heartbeat for stability
@@ -35,10 +35,10 @@ async def stream_prices():
 
                     # If the JSON has both the currency symbol and a price, print the data and evaluate buy option
                     if symbol and price:
-                        level, value = evaluator(symbol, price)
+                        level, value = evaluate_currency_prices(symbol, price)
 
                         if (value == True):
-                            messenger(symbol, price, level)
+                            build_email(symbol, price, level)
 
                 elif data.get('type') == 'heartbeat':
                     # We don't need to print this, but it proves we're alive

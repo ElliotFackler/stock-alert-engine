@@ -4,7 +4,8 @@ FLOOR_DICT = {'BTC-USD': 55000, 'ETH-USD': 1500}
 CEILING_GOAL_DICT = {'BTC-USD': False, 'ETH-USD': False}
 FLOOR_GOAL_DICT = {'BTC-USD': False, 'ETH-USD': False}
 
-def evaluator(symbol, price):
+def evaluate_currency_prices(symbol, price):
+    """Check whether cryptocurrency price has fallen below set floor price or risen above set ceiling price"""
     global CEILING_DICT
     global CEILING_GOAL_DICT
     global FLOOR_DICT

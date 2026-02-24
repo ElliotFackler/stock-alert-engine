@@ -7,25 +7,25 @@ from dotenv import load_dotenv
 load_dotenv() 
 
 # List the sender and recepient emails
-sender = ''
-recepient = ''
+EMAIL1 = os.getenv("EMAIL1")
+EMAIL2 = os.getenv("EMAIL2")
 PASSWORD = os.getenv("PASSWORD")
 
 
-def messenger(symbol, price, level):
-    if (level == "Ceiling"):
-        msg = MIMEText(f"${symbol} has risen above your ceiling price marker to: ${float(price):,.2f}")
-        msg['Subject'] = 'subject'
-        msg['From'] = sender
-        msg['To'] = recepient
-        print(f"${symbol} has risen above your ceiling price marker to: ${float(price):,.2f}")
-    else:
-        msg = MIMEText(f"${symbol} has fallen below your floor price marker to: ${float(price):,.2f}")
-        msg['Subject'] = 'subject'
-        msg['From'] = sender
-        msg['To'] = recepient
-        print(f"${symbol} has fallen below your floor price marker to: ${float(price):,.2f}")
-
+def send_messenge(msg):
+    """Form email and send it via gmail server"""
+    
     with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp_server:
-        smtp_server.login(sender, PASSWORD)
-        smtp_server.sendmail(sender, recepient, msg.as_string())
+        smtp_server.login(EMAIL2, PASSWORD)
+        smtp_server.sendmail(EMAIL2, EMAIL1, msg.as_string())
+
+
+def build_email(symbol, price, level):
+    msg = MIMEText(f"${symbol} has reached your ${level} level and is now ${float(price):,.2f}")
+    msg['Subject'] = 'Important ${symbol} Price Update: ${level} Price Reached'
+    msg['From'] = EMAIL2
+    msg['To'] = EMAIL1
+
+    print(f"${symbol} has reached your ${level} level and is now ${float(price):,.2f}")
+
+    send_messenge(msg)
