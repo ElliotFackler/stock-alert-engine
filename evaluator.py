@@ -1,3 +1,4 @@
+from config_loader import APP_CONFIG
 # Global variables
 CEILING_DICT = {'BTC-USD': 60000, 'ETH-USD': 2000}
 FLOOR_DICT = {'BTC-USD': 55000, 'ETH-USD': 1500}

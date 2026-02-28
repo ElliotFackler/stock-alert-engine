@@ -1,0 +1,24 @@
+{
+  "settings": {
+    "log_level": "INFO"
+  },
+  "watchlist": [
+    {
+      "symbol": "BTC-USD",
+      "ceiling_target_price": 68000.00,
+      "floor_target_price": 61000.00,
+      "alert_sent": false
+    },
+    {
+      "symbol": "ETH-USD",
+      "ceiling_target_price": 2500.00,
+      "floor_target_price": 2000.00,
+      "alert_sent": false
+    }
+  ],
+  "subscribe_message": {
+    "type": "subscribe",
+    "product_ids": ["BTC-USD", "ETH-USD"],
+    "channels": ["ticker", "heartbeat"]
+  }
+}

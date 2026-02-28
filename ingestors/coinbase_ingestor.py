@@ -1,6 +1,7 @@
 import websockets
 import asyncio
 import json
+from config_loader import APP_CONFIG
 from messenger import build_email
 from evaluator import evaluate_currency_prices
 
@@ -8,18 +9,11 @@ async def stream_prices():
     """ Access Coinbase websocket and pull the currency data via a JSON block"""
     url = "wss://ws-feed.exchange.coinbase.com"
 
-    # Subscription message to send to websocket: ticker for data, heartbeat for stability
-    subscribe_message = {
-        "type": "subscribe",
-        "product_ids": ["BTC-USD", "ETH-USD"],
-        "channels": ["ticker", "heartbeat"]
-    }
-
     try:
         async with websockets.connect(url) as websocket:      
             print(f"Connected to live feed")
 
-            await websocket.send(json.dumps(subscribe_message))
+            await websocket.send(json.dumps(APP_CONFIG['subscribe_message']))
             print("Subscription sent successfully")
 
             # Start stream and keep it going
@@ -27,7 +21,6 @@ async def stream_prices():
                 response = await websocket.recv()
                 data = json.loads(response)
 
-                #print(data)
 
                 if(data.get('type') == 'ticker'):
                     price = data.get('price')
