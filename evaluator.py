@@ -12,6 +12,9 @@ def evaluate_currency_prices(symbol, price):
     global FLOOR_DICT
     global FLOOR_GOAL_DICT
 
+    #print("HERE")
+    #print(APP_CONFIG[symbol])
+
     if (float(price) > CEILING_DICT.get(symbol) and CEILING_GOAL_DICT[symbol] == False):
         CEILING_GOAL_DICT[symbol] = True
         return "Ceiling", CEILING_GOAL_DICT.get(symbol)
