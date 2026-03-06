@@ -2,15 +2,17 @@
   "settings": {
     "log_level": "INFO"
   },
-  "BTC_USD": {
-    "ceiling_target_price": 68000.00,
-    "floor_target_price": 61000.00,
-    "alert_sent": false
-  },
-  "ETH_USD": {
-    "ceiling_target_price": 2500.00,
-    "floor_target_price": 2000.00,
-    "alert_sent": false
+  "watchlist": {
+    "BTC-USD": {
+      "ceiling_target_price": 68000.00,
+      "floor_target_price": 61000.00,
+      "alert_sent": 0
+    },
+    "ETH-USD": {
+      "ceiling_target_price": 2500.00,
+      "floor_target_price": 2000.00,
+      "alert_sent": 0
+    }
   },
   "subscribe_message": {
     "type": "subscribe",
