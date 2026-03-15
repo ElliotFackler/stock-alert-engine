@@ -29,3 +29,18 @@ Phase 4: Deployment & DevOps (Current Status x)
 Containerization: Wrapping the engine in Docker for "one-click" deployment.
 
 CI/CD: GitHub Actions to automatically run unit tests (pytest) on every push.
+
+
+## Gallery
+<p align="center">
+  <table>
+    <tr>
+      <td><img src="assets/Screenshot 2026-03-15 121820.png" alt="Clicked-In View" width="100%"></td>
+      <td><img src="assets/Screenshot 2026-03-15 121952.png" alt="Mailbox View" width="100%"></td>
+    </tr>
+    <tr>
+      <td align="center"><b>First Edition View</b></td>
+      <td align="center"><b>Current View</b></td>
+    </tr>
+  </table>
+</p>

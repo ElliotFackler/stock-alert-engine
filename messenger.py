@@ -40,7 +40,7 @@ def send_messenge(msg):
 
 def build_email(symbol, price, level):
     msg = MIMEText(f"{symbol} has reached your {level} level at {datetime.now()} and is now ${float(price):,.2f}")
-    msg['Subject'] = 'Important {symbol} Price Update: ${level} Price Reached'
+    msg['Subject'] = f'Important {symbol} Price Update: {level} Price Reached'
     msg['From'] = EMAIL2
     msg['To'] = EMAIL1
 
