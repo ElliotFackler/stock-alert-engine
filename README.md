@@ -39,8 +39,8 @@ CI/CD: GitHub Actions to automatically run unit tests (pytest) on every push.
       <td><img src="assets/Screenshot 2026-03-15 121952.png" alt="Mailbox View" width="100%"></td>
     </tr>
     <tr>
-      <td align="center"><b>First Edition View</b></td>
-      <td align="center"><b>Current View</b></td>
+      <td align="center"><b>Clicked-In View</b></td>
+      <td align="center"><b>Mailbox View</b></td>
     </tr>
   </table>
 </p>
