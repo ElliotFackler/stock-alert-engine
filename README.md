@@ -9,7 +9,7 @@ Asynchronous I/O: Utilizes asyncio and websockets to handle high-throughput data
 
 Regional Compliance: Configured to handle US-based API restrictions (HTTP 451) by routing through compliant endpoints.
 
-Phase 2: The "Brain" (Logic & Thresholds 🏗️)
+Phase 2: The "Brain" (Logic & Thresholds 🏗️) (Current Status ✅)
 State Management: Transition from hard-coded variables to dynamic alert configurations.
 
 Price Thresholds: Logic to trigger events when an asset crosses a specific price point.
@@ -18,14 +18,29 @@ Volatility Monitoring: Calculate "Percent Change" over time (e.g., alert if BTC 
 
 Data Validation: Ensure price data is sanitized and converted from strings to floats for mathematical operations.
 
-Phase 3: The "Messenger" (Notifications & Persistence)
+Phase 3: The "Messenger" (Notifications & Persistence) (Current Status ✅)
 Alert Delivery: Integration with Telegram Bot API, Twilio (SMS), or SMTP for real-time notifications.
 
 Database Integration: Use SQLite or Redis to store user-defined alerts so they persist even if the script restarts.
 
 Logging: Implementation of a professional logging system to track alert history and system health.
 
-Phase 4: Deployment & DevOps
+Phase 4: Deployment & DevOps (Current Status x)
 Containerization: Wrapping the engine in Docker for "one-click" deployment.
 
 CI/CD: GitHub Actions to automatically run unit tests (pytest) on every push.
+
+
+## Gallery
+<p align="center">
+  <table>
+    <tr>
+      <td><img src="assets/Screenshot 2026-03-15 121820.png" alt="Clicked-In View" width="100%"></td>
+      <td><img src="assets/Screenshot 2026-03-15 121952.png" alt="Mailbox View" width="100%"></td>
+    </tr>
+    <tr>
+      <td align="center"><b>First Edition View</b></td>
+      <td align="center"><b>Current View</b></td>
+    </tr>
+  </table>
+</p>
